@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..0,900;1,200..0,900&display=swap');
+
+@theme {
+  --color-brand-white: #fffaf0;
+  --color-brand-light-gray: #F3F4F6;
+  --color-brand-dark: #121212;
+
+  --color-brand-blue: #16324f;
+  --color-brand-light: #addfff;
+  --color-brand-yellow: #ffca3a;
+  --color-brand-peach: #Fe858f;
+  --color-brand-purple: #e9d5ff;
+  --color-brand-mint: #c7ffd8;
+  
+
+  --font-sans: 'Mulish', sans-serif;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-brand-light);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
+  }
+
+  /* Portal Arrow Keyframes */
+  @keyframes portalArrow {
+    0% { transform: translate(0, 0); opacity: 1; }
+    40% { transform: translate(25px, -25px); opacity: 1; }
+    41% { transform: translate(-25px, 25px); opacity: 1; }
+    100% { transform: translate(0, 0); opacity: 1; }
+  }
+
+  /* Utility binding */
+  .animate-arrow-portal {
+    animation: portalArrow 0.45s ease-in-out forwards;
+  }
+
+  @keyframes spinReverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Custom utility class for infinite counter-clockwise rotation */
+  .animate-spin-reverse {
+    animation: spinReverse 30s linear infinite;
+  }
+
+  /* Image Track Scroll Keyframes */
+
+  @keyframes imageTrackScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-image-track {
+    animation: imageTrackScroll var(--marquee-speed, 20s) linear infinite;
+  }
+}
